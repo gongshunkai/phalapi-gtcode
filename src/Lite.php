@@ -58,7 +58,9 @@ class Lite
      */
     public function startCaptchaServlet($param, $new_captcha=1) {
 
-        session_start();
+        if(!isset($_SESSION)){
+            session_start();
+        }
 
         $data = array(
             'user_id' => 'test', # 网站用户id
@@ -90,7 +92,9 @@ class Lite
      */
     public function verifyLoginServlet($challenge, $validate, $seccode,$param, $json_format=1) {
 
-        session_start();
+        if(!isset($_SESSION)){
+            session_start();
+        }
         
         $data = array(
             'client_type' => 'web', #web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式
