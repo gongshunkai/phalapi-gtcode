@@ -74,7 +74,6 @@ class Lite
         $status = $this->GtLib->pre_process($data, $new_captcha);
 
         $_SESSION['gtserver'] = $status;
-        $_SESSION['user_id'] = $data['user_id'];
 
         //返回验证字符串接口
         return $this->GtLib->get_response();
@@ -97,13 +96,12 @@ class Lite
         }
         
         $data = array(
+            'user_id' => 'test', # 网站用户id
             'client_type' => 'web', #web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式
             'ip_address' => '127.0.0.1' # 请在此处传输用户请求验证时所携带的IP
         );
 
         $data = array_merge($data,$param);
-
-        $data['user_id'] = $_SESSION['user_id'];
 
         if ($_SESSION['gtserver'] == 1) {   //服务器正常
             $result = $this->GtLib->success_validate($challenge, $validate, $seccode, $data, $json_format);

@@ -43,6 +43,7 @@ class GTCode extends Api {
                 'clientType' => array('name' => 'client_type', 'type' => 'string', 'require' => true, 'desc' => 'web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式')
             ),
             'verifyLoginServlet' => array(
+                'userId' => array('name' => 'user_id', 'type' => 'string', 'require' => true, 'desc' => '用户ID'),
                 'clientType' => array('name' => 'client_type', 'type' => 'string', 'require' => true, 'desc' => 'web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式'),
                 'challenge' => array('name' => 'challenge', 'type' => 'string', 'require' => true, 'desc' => 'challenge'),
                 'validate' => array('name' => 'validate', 'type' => 'string', 'require' => true, 'desc' => 'validate'),
@@ -76,6 +77,7 @@ class GTCode extends Api {
         $rs = array();
 
         $code = \PhalApi\DI()->gtcode->verifyLoginServlet($this->challenge, $this->validate, $this->seccode, array(
+            'user_id' => $this->userId,
             'client_type' => $this->clientType,
             'ip_address' => $_SERVER["REMOTE_ADDR"]
         ));
