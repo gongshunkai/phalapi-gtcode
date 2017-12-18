@@ -39,12 +39,12 @@ class GTCode extends Api {
     public function getRules() {
         return array(
             'startCaptchaServlet' => array(
-                'userId' => array('name' => 'user_id', 'type' => 'string', 'require' => true, 'desc' => '用户ID'),
-                'clientType' => array('name' => 'client_type', 'type' => 'string', 'require' => true, 'desc' => 'web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式')
+                'userId' => array('name' => 'user_id', 'type' => 'string', 'require' => false, 'default' => 'test', desc' => '用户ID'),
+                'clientType' => array('name' => 'client_type', 'type' => 'enum', 'require' => false, 'default' => 'web', 'range' => array('web','h5','native'), 'desc' => 'web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式')
             ),
             'verifyLoginServlet' => array(
-                'userId' => array('name' => 'user_id', 'type' => 'string', 'require' => true, 'desc' => '用户ID'),
-                'clientType' => array('name' => 'client_type', 'type' => 'string', 'require' => true, 'desc' => 'web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式'),
+                'userId' => array('name' => 'user_id', 'type' => 'string', 'require' => false, 'default' => 'test', desc' => '用户ID'),
+                'clientType' => array('name' => 'client_type', 'type' => 'enum', 'require' => false, 'default' => 'web', 'range' => array('web','h5','native'), 'desc' => 'web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式'),
                 'challenge' => array('name' => 'challenge', 'type' => 'string', 'require' => true, 'desc' => 'challenge'),
                 'validate' => array('name' => 'validate', 'type' => 'string', 'require' => true, 'desc' => 'validate'),
                 'seccode' => array('name' => 'seccode', 'type' => 'string', 'require' => true, 'desc' => 'seccode'),
