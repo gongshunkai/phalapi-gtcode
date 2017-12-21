@@ -30,7 +30,7 @@ $di->gtcode = function() {
 1. 初始化验证方法startCaptchaServlet，返回验证字符串数据提供给客户端脚本初始化，并在回调函数中获取captchaObj对象提供给二次验证需要的参数
 2. 二次验证方法verifyLoginServlet，返回验证的结果，1表示成功，0表示失败
 
-客户端配置请访问极验文档：http://docs.geetest.com/install/client/web-front/
+客户端配置参见极验文档：http://docs.geetest.com/install/client/web-front/
 如在使用中有任何疑问可以加我的qq:49078111
 
 ```php
