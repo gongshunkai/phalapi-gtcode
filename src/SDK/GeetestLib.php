@@ -6,7 +6,6 @@ namespace PhalApi\GTCode\SDK;
  *
  * @author Tanxu
  */
-
 class GeetestLib {
     const GT_SDK_VERSION = 'php_3.0.0';
 
